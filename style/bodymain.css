@@ -1,0 +1,9 @@
+body {
+    background-color: beige;
+}
+main {
+    margin:0 auto;
+    width: 960px;
+    background-color: #FFF;
+    border: 2px solid #DDD;
+}

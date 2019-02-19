@@ -1,0 +1,28 @@
+nav {background-color: #1E90FF;height: 30px;}
+nav ul {margin: 0;; position: relative;top: 5px;}
+nav ul li {list-style: none; font-family: Staatliches; letter-spacing: 0.05em; display: inline-block; float: left; position: relative;}
+nav ul li a {text-decoration: none; color: #FF0; padding: 5px 20px;}
+nav ul li a:hover {background-color: #DAA520;}
+
+nav ul li#menunav img {
+    float: right;
+    width: 40px;
+    position: relative;
+    top: -9px;
+    right:30px
+}
+
+nav ul li#menunav {
+    float: right;
+}
+
+nav ul li#menunav a:hover {
+    background-color: #1E90FF;
+}
+
+nav ul li ul {display: none; position: absolute; padding: 0; margin-top: 22px; right: 20px;}
+nav ul li ul li {background-color: aqua; padding: 5px 8px; margin-bottom: 2px; width: 150px; font-size: 1.2em;
+    letter-spacing: 0.09em;}
+nav ul li ul li a {display: block}
+nav ul li ul li a:hover {}
+nav li:hover ul {display: block;}

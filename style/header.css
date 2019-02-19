@@ -1,0 +1,38 @@
+    header {
+        width: 950px;
+        height: 100px;
+        background-color: #4682B4;
+        padding: 0px 10px 0px 0px;
+        line-height: 1.5em
+    }
+
+    header img {
+        width: 167px;
+        height: 100px;
+        float: left;
+        margin-right: 10px
+    }
+
+    hgroup {
+        position: relative;
+        top: 30px;
+        left: 10px;
+    }
+
+    header h1, h3 {
+        margin: 0;
+    }
+
+    h1 {
+        font-family: Staatliches;
+        font-size: 3em;
+        color: coral;
+        letter-spacing: 0.06em;
+        padding: 0;
+    }
+
+    header h3 {
+        font-family: Lobster, Staatliches;
+        font-size: 1.5em;
+        font-weight: 100
+    }
