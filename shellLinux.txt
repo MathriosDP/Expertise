@@ -1,0 +1,192 @@
+#define CLEAR()
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<sys/types.h>
+#include<sys/wait.h>
+
+char com[50];
+
+void help(){
+        printf("---------- COMANDOS ---------\n\n");
+        printf("help -  Ajuda:\n");
+        printf("exit - Sair do programa\n");
+        printf("cd - diretório\n");
+        printf("hello - Mensagem para o usuário\n\n");
+}
+
+void cd(char *comd){
+        chdir("..");
+        char *pch = strtok (comd," ");
+        char *str;
+        while (pch != NULL){
+                pch = strtok (NULL, " ");
+                chdir(pch);
+        }
+
+        return;
+}
+
+
+void hello(){
+        printf("Olá %s\n", getenv("USER"));
+        return;
+}
+
+int verificaComando(char *cmd){
+        char comandos[4][15] = {"exit", "help","cd", "hello"};
+        int contador = 0;
+        int verfExist = 0;
+ char *pch = strtok (comd," ");
+        char *str;
+        while (pch != NULL){
+                pch = strtok (NULL, " ");
+                chdir(pch);
+        }
+
+        return;
+}
+
+
+void hello(){
+        printf("Olá %s\n", getenv("USER"));
+        return;
+}
+
+int verificaComando(char *cmd){
+        char comandos[4][15] = {"exit", "help","cd", "hello"};
+        int contador = 0;
+        int verfExist = 0;
+
+        for(contador=0;contador<4;contador++){
+                if(strcmp(cmd, comandos[contador]) == 0){
+                        verfExist = 2;
+                        switch(contador){
+                                case 0:
+                                        verfExist = 1;
+                                        break;
+                                case 1:
+                                        help();
+                                        break;
+                                case 2:
+                                        cd(com);
+                                        break;
+                                case 3:
+                                        hello();
+                                        break;
+                        }
+                }
+        }
+for(contador=0;contador<4;contador++){
+                if(strcmp(cmd, comandos[contador]) == 0){
+                        verfExist = 2;
+                        switch(contador){
+                                case 0:
+                                        verfExist = 1;
+                                        break;
+                                case 1:
+                                        help();
+                                        break;
+                                case 2:
+                                        cd(com);
+                                        break;
+                                case 3:
+                                        hello();
+                                        break;
+                        }
+                }
+        }
+
+        return verfExist;
+}
+
+int main() {
+        printf("\033[H\033[J");
+        int i;
+        pid_t pid;
+        int encerra_programa = 0;
+        int useCadas = 0;
+        char *use;
+        FILE *jogadas;
+        FILE *lerComando;
+        char Linha[20];
+        char cwd[256];
+        int resultVerifComando;
+
+        while(encerra_programa != 1){
+                int contComando = 0;
+}
+
+int main() {
+        printf("\033[H\033[J");
+        int i;
+        pid_t pid;
+        int encerra_programa = 0;
+        int useCadas = 0;
+        char *use;
+        FILE *jogadas;
+        FILE *lerComando;
+        char Linha[20];
+        char cwd[256];
+        int resultVerifComando;
+
+        while(encerra_programa != 1){
+                int contComando = 0;
+
+                /*if(useCadas == 0){
+                        printf("usuario $$: ");
+                        scanf("%s", &use);
+                        useCadas = 1;
+                }*/
+
+                /* if((fopen("listaComandos.txt", "r"))!=NULL){
+                        lerComando = fopen("listaComando.txt", "r");
+                        while(!feof(lerComando)){
+
+                                fgets(Linha, 20, lerComando);
+                                system("CLS");
+                                printf("%s $$: %s ", use,  Linha);
+                        }
+                        fclose(lerComando);
+                } */
+
+                printf("%s %s $$: ", getcwd(cwd, sizeof(cwd)), getenv("USER"));
+                fgets(com, 50, stdin);
+                strtok(com, "\n");
+                if((encerra_programa = (verificaComando(com))) == 0){
+                        system(com);
+                }
+  
+                        useCadas = 1;
+                }*/
+
+                /* if((fopen("listaComandos.txt", "r"))!=NULL){
+                        lerComando = fopen("listaComando.txt", "r");
+                        while(!feof(lerComando)){
+
+                                fgets(Linha, 20, lerComando);
+                                system("CLS");
+                                printf("%s $$: %s ", use,  Linha);
+                        }
+                        fclose(lerComando);
+                } */
+
+                printf("%s %s $$: ", getcwd(cwd, sizeof(cwd)), getenv("USER"));
+                fgets(com, 50, stdin);
+                strtok(com, "\n");
+                if((encerra_programa = (verificaComando(com))) == 0){
+                        system(com);
+                }
+
+                /* jogadas = fopen("listaComandos.txt", "w");
+                fprintf(jogadas, "%s", comando);
+                fprintf(jogadas, "\n");
+                fclose(jogadas);*/
+
+                /*printf("1 para sai");
+                scanf("%d", &encerra_programa);*/
+        }
+}
+
+                            
