@@ -12,8 +12,8 @@ void help(){
         printf("---------- COMANDOS ---------\n\n");
         printf("help -  Ajuda:\n");
         printf("exit - Sair do programa\n");
-        printf("cd - diretÛrio\n");
-        printf("hello - Mensagem para o usu·rio\n\n");
+        printf("cd - diret√≥rio\n");
+        printf("hello - Mensagem para o usu√°rio\n\n");
 }
 
 void cd(char *comd){
@@ -30,27 +30,7 @@ void cd(char *comd){
 
 
 void hello(){
-        printf("Ol· %s\n", getenv("USER"));
-        return;
-}
-
-int verificaComando(char *cmd){
-        char comandos[4][15] = {"exit", "help","cd", "hello"};
-        int contador = 0;
-        int verfExist = 0;
- char *pch = strtok (comd," ");
-        char *str;
-        while (pch != NULL){
-                pch = strtok (NULL, " ");
-                chdir(pch);
-        }
-
-        return;
-}
-
-
-void hello(){
-        printf("Ol· %s\n", getenv("USER"));
+        printf("Ol√° %s\n", getenv("USER"));
         return;
 }
 
@@ -78,44 +58,8 @@ int verificaComando(char *cmd){
                         }
                 }
         }
-for(contador=0;contador<4;contador++){
-                if(strcmp(cmd, comandos[contador]) == 0){
-                        verfExist = 2;
-                        switch(contador){
-                                case 0:
-                                        verfExist = 1;
-                                        break;
-                                case 1:
-                                        help();
-                                        break;
-                                case 2:
-                                        cd(com);
-                                        break;
-                                case 3:
-                                        hello();
-                                        break;
-                        }
-                }
-        }
 
         return verfExist;
-}
-
-int main() {
-        printf("\033[H\033[J");
-        int i;
-        pid_t pid;
-        int encerra_programa = 0;
-        int useCadas = 0;
-        char *use;
-        FILE *jogadas;
-        FILE *lerComando;
-        char Linha[20];
-        char cwd[256];
-        int resultVerifComando;
-
-        while(encerra_programa != 1){
-                int contComando = 0;
 }
 
 int main() {
@@ -157,27 +101,6 @@ int main() {
                 if((encerra_programa = (verificaComando(com))) == 0){
                         system(com);
                 }
-  
-                        useCadas = 1;
-                }*/
-
-                /* if((fopen("listaComandos.txt", "r"))!=NULL){
-                        lerComando = fopen("listaComando.txt", "r");
-                        while(!feof(lerComando)){
-
-                                fgets(Linha, 20, lerComando);
-                                system("CLS");
-                                printf("%s $$: %s ", use,  Linha);
-                        }
-                        fclose(lerComando);
-                } */
-
-                printf("%s %s $$: ", getcwd(cwd, sizeof(cwd)), getenv("USER"));
-                fgets(com, 50, stdin);
-                strtok(com, "\n");
-                if((encerra_programa = (verificaComando(com))) == 0){
-                        system(com);
-                }
 
                 /* jogadas = fopen("listaComandos.txt", "w");
                 fprintf(jogadas, "%s", comando);
@@ -189,4 +112,12 @@ int main() {
         }
 }
 
-                            
+        /*if((pid = fork()) < 0){
+                perror("fork n√£o conseguiu abrir outro processo\n");
+                exit(1);
+        }
+        if(pid == 0 ){
+                printf("\nO codigo do filho e: %d\n", getpid());
+        }else{
+                printf("\nEste e o codigo do pai: %d\n", getpid());
+        }
